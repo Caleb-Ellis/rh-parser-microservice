@@ -11,17 +11,21 @@ var app = express();
 app.use(express.static('./public'));
 app.use(bodyParser.json());
 app.use(useragent.express());
+app.enable('trust proxy');
 
 // Set up routes
 app.get('/api', function (req, res) {
-  console.log(req);
   var header = req.headers;
+  var ip = req.headers['x-forwarded-for'] ||
+    req.connection.remoteAddress ||
+    req.socket.remoteAddress ||
+    req.connection.socket.remoteAddress;
   var language = header['accept-language'].split(',');
 
   res.json({
-    ipaddress: header.host,
+    ipaddress: ip,
     language: language[0],
-    software: req.useragent.platform + ', ' + req.useragent.os
+    software: req.headers['user-agent'].split(') ')[0].split(' (')[1]
   });
 });
 
