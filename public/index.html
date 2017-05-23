@@ -2,30 +2,28 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Timestamp Microservice</title>
+    <title>Request Header Parser Microservice</title>
     <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
   <body>
     <div class="container" id="homepage">
-      <h1 class="title">Timestamp Microservice</h1>
+      <h1 class="title">Request Header Parser Microservice</h1>
       <h2>Example usage:</h2>
-      <code>https://ce-timestamp-microservice.herokuapp.com/December%2015,%202015</code><br>
-      <code>https://ce-timestamp-microservice.herokuapp.com/1450137600</code>
+      <code>https://ce-rh-parser-microservice.herokuapp.com/api</code><br>
       <h2>Example output:</h2>
-      <code>{ "unix": 1450137600, "natural": "December 15, 2015" }</code><br><br>
+      <code>{"ipaddress":"58.7.251.209","language":"en-GB","software":"Windows NT 6.1; Win64; x64"}</code><br><br>
       <h2>
-        Alternatively, use the form below:
+        Alternatively, hit the Submit button below:
       </h2>
       <script>
       function goTo() {
         var url = window.location.href;
-        var append = document.getElementById("timeQuery").value;
+        var append = ""
         location.href=url+append;
         return false;
       }
       </script>
       <form onsubmit="return goTo();">
-        <input id="timeQuery" name='query' type="text" placeholder="Enter timestamp" required />
         <input type="submit" value="Submit"/>
       </form>
     </div>
