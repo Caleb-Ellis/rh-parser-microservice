@@ -1,5 +1,5 @@
-# Request Header Parser Microservice
-**FCC Back-End certificate - Request Header Parser Microservice** <br>
->**User Story:** I can get the IP address, language and operating system for my browser.<br>
+# Request Header Parser API
 
-Head to https://ce-rh-parser-microservice.herokuapp.com/ for live demo.
+Retrieves the IP address, language and operating system of the user's browser.
+
+>**User Story:** I can get the IP address, language and operating system for my browser.<br>
